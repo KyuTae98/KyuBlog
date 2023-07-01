@@ -23,6 +23,19 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
+      {
+        test: /\.(eot|md|svg|ttf|woff|woff2)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+          },
+        },
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: "file-loader",
+      },
     ],
   },
   devtool: "inline-source-map",
@@ -30,11 +43,14 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js", ".jsx"],
   },
   devServer: {
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, "public"),
     },
     compress: true,
     port: 3000,
+    hot: true,
+    open: true,
   },
   output: {
     filename: "bundle.js",
