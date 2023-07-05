@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "dev": "set NODE_ENV=development && webpack",
+    "build": "set NODE_ENV=production && webpack",
+    "serve": "set NODE_ENV=development && npm run dev && npx webpack-cli serve"
   },
   "repository": {
     "type": "git",

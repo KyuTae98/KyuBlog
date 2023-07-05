@@ -52,6 +52,10 @@ module.exports = {
     hot: true,
     open: true,
   },
+  watchOptions: {
+    aggregateTimeout: 600,
+    ignored: /node_modules/,
+  },
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),

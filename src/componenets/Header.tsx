@@ -1,25 +1,27 @@
 import React from "react";
 import styled from "styled-components"
-import HomeImage from "../images/Home.png"
 
 const StyledHeader = styled.header`
     width:80%;
-    display:flex;
-    justify-content: space-between;
     font-family: 'Noto Sans KR', sans-serif;
     color:#FFFFFF;
+    padding:20px;
     font-size: 20px;
 `
 
-const StyledImg = styled.img`
-
+const Stylednav = styled.nav`
+    max-width:200px;
+    display:flex;
+    justify-content:space-between;
 `
 
 const Header = () =>{
     return(
         <StyledHeader>
-            <span>Kyutae</span>
-            <span>Profile</span>
+            <Stylednav>
+                <span>Home</span>
+                <span>Profile</span>
+            </Stylednav>
         </StyledHeader>
     )
 }
