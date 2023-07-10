@@ -1,13 +1,27 @@
-import React from "react"
-import usePost from "../hooks/usePost"
+import styled from "styled-components"
+import React,{useState,useEffect} from "react"
+import ReactMarkdown from 'react-markdown';
+import { getPosts } from "../utils/GetPost";
 
+const StylePost = styled.div`
+color: white;
+`
 
 
 const Posts = () =>{
-    const  getPost = usePost()
+    const [posts,setPosts] = useState<string[][]>()
+    useEffect(()=>{
+        getPosts().then(element=>{
+            setPosts(element)
+        })
+    },[])
+    console.log(posts)
     return (
-        <div>
-        </div>
+        <StylePost>
+            {posts?.map((element,index)=>(
+                <ReactMarkdown children={element[2]} key={index}/>
+            ))}
+        </StylePost>
     )
 }
 
